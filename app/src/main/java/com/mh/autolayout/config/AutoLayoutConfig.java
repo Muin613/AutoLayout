@@ -57,8 +57,22 @@ public class AutoLayoutConfig {
         mDesignWidth = mDesignWidth ^ mDesignHeight;
         return this;
     }
-//屏幕重置
-    public AutoLayoutConfig windowReset() {
+//屏幕横屏
+    public AutoLayoutConfig windowLandSpace(){
+        if (mScreenWidth < mScreenHeight) {
+            mScreenWidth = mScreenWidth ^ mScreenHeight;
+            mScreenHeight = mScreenWidth ^ mScreenHeight;
+            mScreenWidth = mScreenWidth ^ mScreenHeight;
+        }
+        if (mDesignWidth < mDesignHeight) {
+            mDesignWidth = mDesignWidth ^ mDesignHeight;
+            mDesignHeight = mDesignWidth ^ mDesignHeight;
+            mDesignWidth = mDesignWidth ^ mDesignHeight;
+        }
+        return this;
+    }
+//屏幕竖屏
+    public AutoLayoutConfig windowPortrait() {
         if (mScreenWidth > mScreenHeight) {
             mScreenWidth = mScreenWidth ^ mScreenHeight;
             mScreenHeight = mScreenWidth ^ mScreenHeight;
